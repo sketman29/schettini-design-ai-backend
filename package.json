@@ -1,0 +1,11 @@
+{
+  "name": "schettini-design-ai-backend-cloudflare",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=20"},
+  "dependencies": {
+    "formidable": "^3.5.4",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
