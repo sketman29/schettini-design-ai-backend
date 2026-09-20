@@ -1,26 +1,10 @@
-# Schettini Design AI — Backend Cloudflare Free
+# Schettini Design AI — Cloudflare Free backend v3
 
-Backend Vercel compatibile con la v0.5.8 di Schettini Design AI.
+Fix specifico per rimozione cucina:
+- prompt di inpainting descrive solo l'ambiente vuoto (non i requisiti della nuova cucina);
+- ritaglio automatico della zona mascherata con contesto;
+- espansione leggera della maschera per eliminare bordi residui;
+- strength 1, guidance 11, 20 step;
+- ricomposizione del risultato sulla foto originale, quindi il resto dell'immagine resta invariato.
 
-## Provider
-Cloudflare Workers AI — `@cf/runwayml/stable-diffusion-v1-5-inpainting`
-
-## Variabili Vercel Production
-- `APP_ACCESS_PASSWORD` (già esistente)
-- `APP_JWT_SECRET` (già esistente)
-- `CLOUDFLARE_ACCOUNT_ID`
-- `CLOUDFLARE_AI_TOKEN`
-- opzionale `CLOUDFLARE_IMAGE_MODEL=@cf/runwayml/stable-diffusion-v1-5-inpainting`
-
-`OPENAI_API_KEY` non è richiesta per `/api/photo/clean`.
-
-## Endpoint
-- GET `/api/health`
-- POST `/api/session`
-- POST `/api/photo/clean`
-
-La modalità gratuita richiede una maschera manuale nell'app prima di premere Pulisci con AI.
-
-
-## Fix risposta immagini
-Questa revisione normalizza output Cloudflare binario/JSON/base64 prima di restituirlo al frontend e impedisce errori `atob()`.
+Mantiene le stesse variabili Vercel della v2.
